@@ -1,0 +1,25 @@
+#install maridb
+sudo dnf install mariadb105 -y
+
+#connect to DB
+mysql -h <endpoint> -P 3306 -u admin -p
+
+#install apache & php softwares
+sudo dnf install -y httpd php php-mysqli 
+
+#Start and Enable Service
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+#change ownership
+sudo chown -R ec2-user /var/www/
+
+#place website
+cd /var/www/html
+
+sudo vi index.php
+
+copy and paste the php code
+
+sudo vi dbinfo.inc
+copy and paste the variables
